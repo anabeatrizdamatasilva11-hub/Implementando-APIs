@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.search-section {
+    margin-bottom: 3rem;
+}
+
+.search-container {
+    display: flex;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#searchBtn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#searchBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+#searchBtn:active {
+    transform: translateY(0);
+}
+
+.categories h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #667eea;
+    font-size: 2rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.category-btn {
+    padding: 1.5rem;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.category-btn:hover {
+    border-color: #667eea;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+}
+
+.category-btn .icon {
+    font-size: 2.5rem;
+}
+
+.results {
+    margin-top: 3rem;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+.loading {
+    color: #667eea;
+}
+
+.error {
+    color: #e74c3c;
+    background: #ffe6e6;
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.results-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.item-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border-color: #667eea;
+}
+
+.item-card h3 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+
+.item-card p {
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+.item-card .item-type {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* Estilos adicionais para o card de exemplo (badges e lista de categorias) */
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+    align-items: center;
+}
+
+.card-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: #f1f5ff;
+    color: #333;
+    border-radius: 14px;
+    border: 1px solid #e6e9ff;
+    font-size: 0.85rem;
+}
+
+.card-desc {
+    color: #555;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.card-categories-label {
+    margin-top: 0.5rem;
+    color: #333;
+}
+
+.card-categories {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem 0 1rem 0;
+    padding: 0;
+}
+
+.card-categories li {
+    background: linear-gradient(135deg, rgba(102,126,234,0.08) 0%, rgba(118,75,162,0.08) 100%);
+    padding: 0.4rem 0.7rem;
+    border-radius: 12px;
+    border: 1px solid #e8e8ff;
+    font-size: 0.9rem;
+}
+
+.card-footer {
+    margin-top: 0.75rem;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.list-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.list-item {
+    background: white;
+    border: 2px solid #e0e0e0;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.list-item:hover {
+    border-color: #667eea;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    transform: translateY(-2px);
+}
+
+.detail-view {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.detail-view h3 {
+    color: #667eea;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+}
+
+.detail-view .detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.detail-view .detail-label {
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 0.3rem;
+}
+
+.detail-view .detail-content {
+    color: #666;
+    line-height: 1.8;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+}
+
+footer {
+    background: #f8f9fa;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    color: #666;
+    border-top: 1px solid #e0e0e0;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .results-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-container {
+        flex-direction: column;
+    }
+}

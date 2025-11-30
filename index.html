@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Genshin Impact</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Universo Genshin Impact</h1>
+        <p>Explore informações sobre personagens, armas, artefatos e mais!</p>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar por nome...">
+                <button id="searchBtn">Buscar</button>
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2>Categorias</h2>
+            <div class="category-grid">
+                <button class="category-btn" data-category="characters">
+                    <span class="icon">👥</span>
+                    Personagens
+                </button>
+                <button class="category-btn" data-category="weapons">
+                    <span class="icon">⚔️</span>
+                    Armas
+                </button>
+                <button id="category-btn" data-category="artifacts">
+                    <span class="icon">💎</span>
+                    Artefatos
+                </button>
+                <button class="category-btn" data-category="elements">
+                    <span class="icon">🔥</span>
+                    Elementos
+                </button>
+                <button class="category-btn" data-category="nations">
+                    <span class="icon">🏛️</span>
+                    Nações
+                </button>
+                <button class="category-btn" data-category="domains">
+                    <span class="icon">🏰</span>
+                    Domínios
+                </button>
+                <button class="category-btn" data-category="enemies">
+                    <span class="icon">👹</span>
+                    Inimigos
+                </button>
+                <button class="category-btn" data-category="materials">
+                    <span class="icon">📦</span>
+                    Materiais
+                </button>
+            </div>
+        </section>
+
+        <section class="results">
+            <div id="loading" class="loading hidden">Carregando...</div>
+            <div id="error" class="error hidden"></div>
+            <div id="resultsContainer" class="results-container">
+                <!-- Card de exemplo com dados fictícios cobrindo informações de categorias -->
+                <article class="item-card" data-id="fiction-001" aria-labelledby="card-title-1">
+                    <h3 id="card-title-1">Lyra, Sentinela da Aurora</h3>
+                    <p class="card-desc">Uma guardiã das planícies ao amanhecer; usa poderes de vento para proteger viajantes e vilarejos.</p>
+                    <div class="card-meta">
+                        <span class="card-badge">Raridade: ★★★★★</span>
+                    </div>
+
+                    <p class="card-footer">ID fictício: <code>fiction-001</code></p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Dados fornecidos por genshin.dev API | Universo Genshin Impact © 2024</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
